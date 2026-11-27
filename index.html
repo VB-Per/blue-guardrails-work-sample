@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="color-scheme" content="light dark"><title>Finding a wrong order ID in an agent trace</title><style>:root {
+  color-scheme: light;
+  --ink: #191a1c;
+  --body: #383b40;
+  --muted: #575c63;
+  --blue: #22519a;
+  --blue-dark: #123a78;
+  --paper: #fdfcf9;
+  --surface: #fffefc;
+  --ice: #f3f2ef;
+  --line: #d6d6d1;
+  --edge: #cbcdc9;
+  --soft-line: #e1e1dc;
+  --tint: #eeefed;
+  --subtle: #f7f7f4;
+  --rule: #afb8c2;
+  --primary-ink: #ffffff;
+  --hero-start: #faf9f6;
+  --hero-end: #f0efeb;
+  --mast-fill: rgba(253,252,249,.96);
+  --head-fill: #30343a;
+  --head-text: #fafaf8;
+  --console: #22262c;
+  --console-text: #eef0f3;
+  --console-label: #bcc9d6;
+  --well: #212327;
+  --well-text: #f5f4f0;
+  --well-muted: #d6d9dc;
+  --well-link: #c9dfff;
+  --underline: #9aaec7;
+  --focus: #245fb6;
+  --shadow: 0 2px 4px #20232a05, 0 12px 32px #20232a0a;
+  --card-shadow: 0 2px 7px #22242a05;
+  --gutter: clamp(20px, 5vw, 78px);
+  --measure: 1180px;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+:root:has(#theme-dark:checked) {
+  color-scheme: dark;
+  --ink: #f1f0ec;
+  --body: #dbdcd9;
+  --muted: #b5b7b8;
+  --blue: #a7caff;
+  --blue-dark: #d1e2ff;
+  --paper: #171819;
+  --surface: #202123;
+  --ice: #1c1d1e;
+  --line: #414345;
+  --edge: #4b4c4d;
+  --soft-line: #393b3d;
+  --tint: #252729;
+  --subtle: #232426;
+  --rule: #637080;
+  --primary-ink: #13233b;
+  --hero-start: #242527;
+  --hero-end: #1b1c1d;
+  --mast-fill: rgba(23,24,25,.96);
+  --head-fill: #32363b;
+  --head-text: #f5f5f1;
+  --console: #131517;
+  --console-text: #f3f3ef;
+  --console-label: #bbc9d6;
+  --well: #121315;
+  --well-text: #f2f2ee;
+  --well-muted: #cacdcf;
+  --well-link: #c5dcff;
+  --underline: #697989;
+  --focus: #a6caff;
+  --shadow: 0 2px 5px #0002, 0 12px 32px #0003;
+  --card-shadow: 0 2px 7px #0002;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(#theme-light:checked)) {
+    color-scheme: dark;
+    --ink: #f1f0ec;
+    --body: #dbdcd9;
+    --muted: #b5b7b8;
+    --blue: #a7caff;
+    --blue-dark: #d1e2ff;
+    --paper: #171819;
+    --surface: #202123;
+    --ice: #1c1d1e;
+    --line: #414345;
+    --edge: #4b4c4d;
+    --soft-line: #393b3d;
+    --tint: #252729;
+    --subtle: #232426;
+    --rule: #637080;
+    --primary-ink: #13233b;
+    --hero-start: #242527;
+    --hero-end: #1b1c1d;
+    --mast-fill: rgba(23,24,25,.96);
+    --head-fill: #32363b;
+    --head-text: #f5f5f1;
+    --console: #131517;
+    --console-text: #f3f3ef;
+    --console-label: #bbc9d6;
+    --well: #121315;
+    --well-text: #f2f2ee;
+    --well-muted: #cacdcf;
+    --well-link: #c5dcff;
+    --underline: #697989;
+    --focus: #a6caff;
+    --shadow: 0 2px 5px #0002, 0 12px 32px #0003;
+    --card-shadow: 0 2px 7px #0002;
+  }
+}
+/* Native radios remain operable when the page is opened with scripting disabled. */
+.appearance { display: inline-flex; flex: none; align-items: stretch; padding: 3px; gap: 2px; margin: 0 0 0 6px; border: 1px solid var(--line); background: var(--tint); border-radius: 999px }
+.appearance legend,.appearance input { position: absolute; width: 1px; height: 1px; overflow: hidden; white-space: nowrap; clip-path: inset(50%) }
+.appearance label { position: relative; cursor: pointer; touch-action: manipulation }
+.appearance span { display: block; min-width: 40px; padding: 5px 8px; border: 1px solid transparent; border-radius: 999px; font-size: .75rem; color: var(--muted); text-align: center; line-height: 1.3 }
+.appearance label:hover span { color: var(--ink) }
+.appearance input:checked + span { color: var(--ink); background: var(--surface); border-color: var(--edge); box-shadow: var(--card-shadow); font-weight: 670 }
+.appearance input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 2px }
+@media(forced-colors:active) { .appearance input:checked + span { border: 2px solid SelectedItem } }
+
+* { box-sizing: border-box }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased }
+main { width: min(920px,calc(100% - 40px)); margin: auto; padding: 0 0 60px }
+header { display: flex; justify-content: flex-end; padding: 18px 0; border-bottom: 1px solid var(--line) }
+h1,h2,h3,p,ol,dl,dt,dd,pre { margin: 0 }
+h1,h2,h3 { line-height: 1.13; letter-spacing: -.037em }
+h1 { font-size: clamp(2.2rem,5.3vw,4.2rem); max-width: 18ch; letter-spacing: -.06em; margin: clamp(35px,6vw,70px) 0 17px }
+h2 { font-size: 1.43rem; margin-bottom: 16px }
+h3 { margin-bottom: 8px; font-size: 1.1rem }
+p { max-width: 73ch; color: var(--body) }
+.intro { font-size: clamp(1.05rem,2vw,1.25rem); max-width: 65ch }
+.trace { display: grid; grid-template-columns: 1fr 1fr; margin-block: 30px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden }
+.trace > section { min-width: 0; padding: clamp(20px,2.7vw,28px) }
+.trace > section:first-child { background: var(--subtle); border-right: 1px solid var(--line) }
+dt { font-size: .84rem; font-weight: 620; color: var(--muted); margin-top: 13px }
+dt:first-child { margin-top: 0 }
+dd,li { font-size: .98rem; overflow-wrap: anywhere }
+ol { padding-left: 1.2em }
+li { margin-bottom: 12px; padding-left: 5px }
+li::marker { color: var(--blue); font-weight: 600 }
+code,pre { font-family: ui-monospace,Menlo,Consolas,monospace; font-size: .9em }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .2em }
+a:hover { color: var(--blue-dark) }
+a:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px }
+.run { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line) }
+.run > h2 { margin-bottom: 8px }
+pre { background: var(--console); color: var(--console-text); padding: 18px; border-radius: 7px; margin: 15px 0; overflow-wrap: anywhere; white-space: pre-wrap }
+pre code { font-size: 1em }
+.sources { font-size: .92rem; margin-top: 20px }
+@media(max-width:650px) { .trace { grid-template-columns: 1fr } .trace > section:first-child { border-right: 0; border-bottom: 1px solid var(--line) } }
+</style></head>
+<body><main><header><fieldset class="appearance">
+  <legend>Page appearance</legend>
+  <label><input type="radio" name="appearance" id="theme-system" value="system" checked><span>System</span></label>
+  <label><input type="radio" name="appearance" id="theme-light" value="light"><span>Light</span></label>
+  <label><input type="radio" name="appearance" id="theme-dark" value="dark"><span>Dark</span></label>
+</fieldset>
+<script>// Radio buttons select the appearance in CSS. Storage remembers the reader’s choice.
+(() => {
+  const options = document.querySelectorAll('.appearance input[name="appearance"]');
+  const key = 'trace-example-appearance';
+  try {
+    const saved = localStorage.getItem(key);
+    for (const option of options) {
+      if (option.value === saved) option.checked = true;
+    }
+  } catch {}
+
+  for (const option of options) {
+    option.addEventListener('change', () => {
+      try {
+        if (option.value === 'system') localStorage.removeItem(key);
+        else localStorage.setItem(key, option.value);
+      } catch {}
+    });
+  }
+})();
+
+</script></header>
+<h1>The customer asked about A-77. The agent looked up A-78.</h1>
+<p class="intro">The lookup failed. The agent still told the customer their order was on its way. This synthetic trace shows how three checks can explain what went wrong.</p>
+<div class="trace"><section><h2>The recorded exchange</h2><dl>
+<dt>Customer</dt><dd>“Where is my order A-77? Please include tracking.”</dd>
+<dt>Tool call</dt><dd><code>get_order(order_id="A-78", include="tracking")</code></dd>
+<dt>Tool response</dt><dd><code>OrderNotFoundError: no order A-78</code></dd>
+<dt>Agent’s reply</dt><dd>“Your order A-77 is on its way. You can follow it with the tracking link in your account.”</dd>
+</dl></section><section><h2>What the checks found</h2><ol>
+<li><strong>Invalid option.</strong> The tool accepts <code>summary</code>, <code>shipping</code> or <code>items</code> in the <code>include</code> field. The agent supplied <code>tracking</code>.</li>
+<li><strong>Invented order ID.</strong> The user supplied A-77. No earlier customer message, instruction or tool result supplied A-78.</li>
+<li><strong>Success after a failure.</strong> The lookup returned an error. The agent gave a shipping update without a successful retry.</li>
+</ol></section></div>
+<section class="run"><h2>Run the checks</h2><p><a href="assets/downloads/agent-checks.zip" download="agent-checks.zip">Download the Python example</a> and extract it. In the folder containing <code>run.py</code>, run the following command with Python 3.11 to 3.13. The example uses the standard library.</p>
+<pre><code>python3 run.py -v</code></pre>
+<p>The bundle includes four hand-written traces. The expected result is seven flags across three traces, with the clean trace passing each check. These fixtures demonstrate the rules. Measuring accuracy on a real agent requires separately labelled examples.</p>
+<p class="sources">The trace uses attributes from the <a href="https://github.com/open-telemetry/semantic-conventions-genai">OpenTelemetry GenAI semantic conventions</a>.</p></section>
+</main></body></html>
