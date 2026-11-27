@@ -1,0 +1,340 @@
+{
+  "trace_id": "2946f5dffc58f12f4b2ba9d54d694dea",
+  "_note": "Clean run. The answer only states facts from the get_order result. Every check should pass.",
+  "labels": [],
+  "spans": [
+    {
+      "trace_id": "2946f5dffc58f12f4b2ba9d54d694dea",
+      "span_id": "d31dbfc029d860ef",
+      "parent_span_id": null,
+      "name": "invoke_agent order_support",
+      "kind": "INTERNAL",
+      "start_time": "2026-11-27T09:00:00.000Z",
+      "end_time": "2026-11-27T09:00:02.820Z",
+      "status": {
+        "code": "UNSET"
+      },
+      "attributes": {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.agent.name": "order_support",
+        "gen_ai.provider.name": "demo",
+        "gen_ai.request.model": "demo-model",
+        "gen_ai.conversation.id": "conv_2946f5dffc58"
+      }
+    },
+    {
+      "trace_id": "2946f5dffc58f12f4b2ba9d54d694dea",
+      "span_id": "e2a52c847f4169ed",
+      "parent_span_id": "d31dbfc029d860ef",
+      "name": "chat demo-model",
+      "kind": "CLIENT",
+      "start_time": "2026-11-27T09:00:00.040Z",
+      "end_time": "2026-11-27T09:00:01.240Z",
+      "status": {
+        "code": "UNSET"
+      },
+      "attributes": {
+        "gen_ai.operation.name": "chat",
+        "gen_ai.provider.name": "demo",
+        "gen_ai.request.model": "demo-model",
+        "gen_ai.response.model": "demo-model",
+        "gen_ai.conversation.id": "conv_2946f5dffc58",
+        "gen_ai.system_instructions": [
+          {
+            "type": "text",
+            "content": "You are the support agent for a home goods shop. Answer only from tool results. Refunds reach the customer's card in 5 to 7 business days. Confirm a refund only after issue_refund succeeds."
+          }
+        ],
+        "gen_ai.input.messages": [
+          {
+            "role": "user",
+            "parts": [
+              {
+                "type": "text",
+                "content": "Where is my order A-77?"
+              }
+            ]
+          }
+        ],
+        "gen_ai.tool.definitions": [
+          {
+            "type": "function",
+            "name": "get_order",
+            "description": "Look up one order by its ID.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "include": {
+                  "type": "string",
+                  "enum": [
+                    "summary",
+                    "shipping",
+                    "items"
+                  ]
+                }
+              },
+              "required": [
+                "order_id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "check_stock",
+            "description": "Stock level for one product SKU.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sku"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "issue_refund",
+            "description": "Refund an order. Writes to the payment system.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "damaged",
+                    "late",
+                    "other"
+                  ]
+                }
+              },
+              "required": [
+                "order_id",
+                "amount",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        ],
+        "gen_ai.output.messages": [
+          {
+            "role": "assistant",
+            "parts": [
+              {
+                "type": "tool_call",
+                "id": "call_2946f5_1",
+                "name": "get_order",
+                "arguments": {
+                  "order_id": "A-77",
+                  "include": "shipping"
+                }
+              }
+            ],
+            "finish_reason": "tool_call"
+          }
+        ],
+        "gen_ai.response.finish_reasons": [
+          "tool_call"
+        ]
+      }
+    },
+    {
+      "trace_id": "2946f5dffc58f12f4b2ba9d54d694dea",
+      "span_id": "8f381ae79f950884",
+      "parent_span_id": "d31dbfc029d860ef",
+      "name": "execute_tool get_order",
+      "kind": "INTERNAL",
+      "start_time": "2026-11-27T09:00:01.280Z",
+      "end_time": "2026-11-27T09:00:01.580Z",
+      "status": {
+        "code": "UNSET"
+      },
+      "attributes": {
+        "gen_ai.operation.name": "execute_tool",
+        "gen_ai.tool.name": "get_order",
+        "gen_ai.tool.type": "function",
+        "gen_ai.tool.call.id": "call_2946f5_1",
+        "gen_ai.tool.call.arguments": {
+          "order_id": "A-77",
+          "include": "shipping"
+        },
+        "gen_ai.tool.call.result": {
+          "order_id": "A-77",
+          "status": "shipped",
+          "carrier": "DHL",
+          "shipped_on": "2026-11-20",
+          "estimated_delivery": "2026-11-28"
+        }
+      }
+    },
+    {
+      "trace_id": "2946f5dffc58f12f4b2ba9d54d694dea",
+      "span_id": "e4eae7c07c8804bb",
+      "parent_span_id": "d31dbfc029d860ef",
+      "name": "chat demo-model",
+      "kind": "CLIENT",
+      "start_time": "2026-11-27T09:00:01.620Z",
+      "end_time": "2026-11-27T09:00:02.820Z",
+      "status": {
+        "code": "UNSET"
+      },
+      "attributes": {
+        "gen_ai.operation.name": "chat",
+        "gen_ai.provider.name": "demo",
+        "gen_ai.request.model": "demo-model",
+        "gen_ai.response.model": "demo-model",
+        "gen_ai.conversation.id": "conv_2946f5dffc58",
+        "gen_ai.system_instructions": [
+          {
+            "type": "text",
+            "content": "You are the support agent for a home goods shop. Answer only from tool results. Refunds reach the customer's card in 5 to 7 business days. Confirm a refund only after issue_refund succeeds."
+          }
+        ],
+        "gen_ai.input.messages": [
+          {
+            "role": "user",
+            "parts": [
+              {
+                "type": "text",
+                "content": "Where is my order A-77?"
+              }
+            ]
+          },
+          {
+            "role": "assistant",
+            "parts": [
+              {
+                "type": "tool_call",
+                "id": "call_2946f5_1",
+                "name": "get_order",
+                "arguments": {
+                  "order_id": "A-77",
+                  "include": "shipping"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "parts": [
+              {
+                "type": "tool_call_response",
+                "id": "call_2946f5_1",
+                "response": {
+                  "order_id": "A-77",
+                  "status": "shipped",
+                  "carrier": "DHL",
+                  "shipped_on": "2026-11-20",
+                  "estimated_delivery": "2026-11-28"
+                }
+              }
+            ]
+          }
+        ],
+        "gen_ai.tool.definitions": [
+          {
+            "type": "function",
+            "name": "get_order",
+            "description": "Look up one order by its ID.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "include": {
+                  "type": "string",
+                  "enum": [
+                    "summary",
+                    "shipping",
+                    "items"
+                  ]
+                }
+              },
+              "required": [
+                "order_id"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "check_stock",
+            "description": "Stock level for one product SKU.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sku"
+              ],
+              "additionalProperties": false
+            }
+          },
+          {
+            "type": "function",
+            "name": "issue_refund",
+            "description": "Refund an order. Writes to the payment system.",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "order_id": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "damaged",
+                    "late",
+                    "other"
+                  ]
+                }
+              },
+              "required": [
+                "order_id",
+                "amount",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        ],
+        "gen_ai.output.messages": [
+          {
+            "role": "assistant",
+            "parts": [
+              {
+                "type": "text",
+                "content": "Your order A-77 shipped with DHL on November 20 and should arrive by November 28."
+              }
+            ],
+            "finish_reason": "stop"
+          }
+        ],
+        "gen_ai.response.finish_reasons": [
+          "stop"
+        ]
+      }
+    }
+  ]
+}
