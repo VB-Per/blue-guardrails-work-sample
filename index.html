@@ -10,24 +10,24 @@
 <meta name="description" content="Vighnesh Suresh Babu’s application for Founding Technical Marketing Manager. A product film, sample posts and a hands-on guide for engineers.">
 <style>:root {
   color-scheme: light;
-  --ink: #191a1c;
-  --body: #383b40;
-  --muted: #575c63;
-  --blue: #22519a;
-  --blue-dark: #123a78;
-  --paper: #fdfcf9;
-  --surface: #fffefc;
-  --ice: #f3f2ef;
-  --line: #d6d6d1;
-  --edge: #cbcdc9;
-  --soft-line: #e1e1dc;
-  --tint: #eeefed;
-  --subtle: #f7f7f4;
+  --ink: #191a1b;
+  --body: #393b3d;
+  --muted: #595e62;
+  --blue: #205785;
+  --blue-dark: #103851;
+  --paper: #fcfcfb;
+  --surface: #ffffff;
+  --ice: #f3f4f4;
+  --line: #d9dbdd;
+  --edge: #c8cbce;
+  --soft-line: #e5e7e8;
+  --tint: #eceeef;
+  --subtle: #f7f8f8;
   --rule: #afb8c2;
   --primary-ink: #ffffff;
   --hero-start: #faf9f6;
   --hero-end: #f0efeb;
-  --mast-fill: rgba(253,252,249,.96);
+  --mast-fill: rgba(252,252,251,.93);
   --head-fill: #30343a;
   --head-text: #fafaf8;
   --console: #22262c;
@@ -51,24 +51,24 @@
 }
 :root:has(#theme-dark:checked) {
   color-scheme: dark;
-  --ink: #f1f0ec;
-  --body: #dbdcd9;
-  --muted: #b5b7b8;
-  --blue: #a7caff;
-  --blue-dark: #d1e2ff;
-  --paper: #171819;
-  --surface: #202123;
-  --ice: #1c1d1e;
-  --line: #414345;
-  --edge: #4b4c4d;
-  --soft-line: #393b3d;
-  --tint: #252729;
-  --subtle: #232426;
+  --ink: #f3f4f4;
+  --body: #d3d5d7;
+  --muted: #adb2b5;
+  --blue: #a6ccee;
+  --blue-dark: #cfe6fa;
+  --paper: #121315;
+  --surface: #202225;
+  --ice: #191b1d;
+  --line: #36393c;
+  --edge: #42464a;
+  --soft-line: #303337;
+  --tint: #282a2e;
+  --subtle: #1c1e21;
   --rule: #637080;
   --primary-ink: #13233b;
   --hero-start: #242527;
   --hero-end: #1b1c1d;
-  --mast-fill: rgba(23,24,25,.96);
+  --mast-fill: rgba(18,19,21,.93);
   --head-fill: #32363b;
   --head-text: #f5f5f1;
   --console: #131517;
@@ -86,24 +86,24 @@
 @media (prefers-color-scheme: dark) {
   :root:not(:has(#theme-light:checked)) {
     color-scheme: dark;
-    --ink: #f1f0ec;
-    --body: #dbdcd9;
-    --muted: #b5b7b8;
-    --blue: #a7caff;
-    --blue-dark: #d1e2ff;
-    --paper: #171819;
-    --surface: #202123;
-    --ice: #1c1d1e;
-    --line: #414345;
-    --edge: #4b4c4d;
-    --soft-line: #393b3d;
-    --tint: #252729;
-    --subtle: #232426;
+    --ink: #f3f4f4;
+    --body: #d3d5d7;
+    --muted: #adb2b5;
+    --blue: #a6ccee;
+    --blue-dark: #cfe6fa;
+    --paper: #121315;
+    --surface: #202225;
+    --ice: #191b1d;
+    --line: #36393c;
+    --edge: #42464a;
+    --soft-line: #303337;
+    --tint: #282a2e;
+    --subtle: #1c1e21;
     --rule: #637080;
     --primary-ink: #13233b;
     --hero-start: #242527;
     --hero-end: #1b1c1d;
-    --mast-fill: rgba(23,24,25,.96);
+    --mast-fill: rgba(18,19,21,.93);
     --head-fill: #32363b;
     --head-text: #f5f5f1;
     --console: #131517;
@@ -428,6 +428,303 @@ h2 + .stage-copy, h3 + .stage-copy { margin-top: 14px }
   .postgrid { grid-template-columns: repeat(3,minmax(0,1fr)) }
   a { text-decoration: none }
 }
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --gutter: var(--space-12);
+  --page-gap: var(--space-16);
+  --section-pad: var(--space-20);
+  --measure: 1168px;
+  font-optical-sizing: auto;
+}
+.mast { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: var(--soft-line) }
+.mastin { min-height: 64px; gap: var(--space-4) }
+.name { letter-spacing: -.025em; font-weight: 640 }
+.mastin > span { padding-left: var(--space-4); border-color: var(--edge) }
+.mast nav { gap: var(--space-6) }
+.mast nav a { display: inline-flex; align-items: center; min-height: 36px }
+.appearance { margin-left: var(--space-2); border-color: var(--soft-line); background: var(--tint) }
+.appearance span { padding: 4px 8px; line-height: 1.4; font-weight: 520 }
+.hero { padding: var(--section-pad) 0; border: 0 }
+.hero-heading, .feature-film { display: grid; grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); column-gap: var(--page-gap) }
+.hero-heading { align-items: start }
+.hero h1 {
+  margin: 0; max-width: 19ch; font-size: clamp(3.15rem,4.85vw,4.65rem);
+  line-height: 1.015; letter-spacing: -.049em; font-weight: 600; text-wrap: balance;
+}
+.company-name { white-space: nowrap }
+.hero .hero-intro { margin: 0; max-width: 43ch; padding-top: var(--space-1); color: var(--body); font-size: 1.045rem; line-height: 1.52 }
+.hero-intro p + p { margin-top: var(--space-3) }
+.feature-film { align-items: center; margin: var(--space-12) 0 0 }
+.film-frame {
+  isolation: isolate; position: relative; min-width: 0; aspect-ratio: 16/9; border-radius: var(--space-3);
+  background: var(--console); overflow: hidden;
+  box-shadow: 0 0 0 1px var(--edge), 0 2px 4px rgb(10 16 22 / .05), 0 16px 38px -20px rgb(10 16 22 / .25);
+}
+.film-frame video { display: block; width: 100%; height: 100%; object-fit: contain }
+.film-frame video[hidden] { display: none }
+.film-start {
+  position:absolute; inset:0; width:100%; height:100%; border:0; padding:var(--space-4);
+  display:flex; align-items:flex-end; justify-content:flex-start; background:transparent;
+  color:#fff; font:inherit; cursor:pointer; text-align:left;
+}
+.film-start[hidden] { display:none }
+.film-start .film-still { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; pointer-events:none }
+.play-chip {
+  position:relative;
+  display:inline-flex; align-items:center; min-height:36px; gap:var(--space-2); padding:0 var(--space-4);
+  border-radius:24px; color:#fff; background:#22272c; box-shadow:0 2px 8px rgb(18 23 28 / .12);
+  font-size:.81rem; font-weight:580; line-height:1; letter-spacing:-.005em;
+}
+.play-chip i { width:9px; height:12px; background:currentColor; clip-path: polygon(0 0,100% 50%,0 100%); border-radius:1px }
+.play-chip time { font-variant-numeric:tabular-nums; padding-left:var(--space-2); border-left:1px solid #747a7e; font-size:.77rem; color:#e6e8e9 }
+.film-start:hover .play-chip { background:#101416 }
+.film-start:focus-visible { outline-offset:-5px; border-radius:inherit; outline-color:#0c5eac }
+.feature-film figcaption { max-width:39ch; padding-block: var(--space-6) }
+.feature-film figcaption h2 { font-size:clamp(1.5rem,2.2vw,2.1rem); font-weight:600; letter-spacing:-.037em; line-height:1.1 }
+.feature-film figcaption h2 + p { margin-top:var(--space-4); color:var(--body); font-size:1.03rem; line-height:1.56 }
+.feature-film .film-credit { margin-top:var(--space-5); max-width:40ch; font-size:.83rem; line-height:1.52; color:var(--muted) }
+@media (min-width: 1500px) { :root { --section-pad:var(--space-24) } }
+@media (max-width: 1000px) {
+  :root { --gutter:var(--space-8); --page-gap:var(--space-8); --section-pad:var(--space-16) }
+  .hero h1 { font-size:clamp(2.9rem,5.3vw,3.5rem) }
+  .mast nav { gap:var(--space-4) }
+}
+@media (max-width: 780px) {
+  :root { --gutter:var(--space-6); --page-gap:var(--space-6); --section-pad:var(--space-12) }
+  .hero-heading, .feature-film { display:block }
+  .hero h1 { font-size:clamp(2.55rem, 7.3vw, 3.85rem); max-width:23ch }
+  .hero .hero-intro { font-size:1rem; max-width:54ch; margin-top:var(--space-5); padding:0 }
+  .feature-film { margin-top:var(--space-8) }
+  .feature-film figcaption { max-width:57ch; padding:var(--space-6) 0 0 }
+  .feature-film figcaption h2 + p { margin-top:var(--space-2) }
+  .feature-film .film-credit { margin-top:var(--space-3); max-width:52ch }
+}
+@media (max-width: 720px) {
+  .mastin { min-height:0; padding-block:var(--space-2); gap:0 var(--space-2) }
+  .mast nav { gap:0 var(--space-4); margin:var(--space-1) 0 0 }
+  .mast nav a { min-height:32px }
+  .appearance { margin-left:auto }
+}
+@media (max-width: 460px) {
+  :root { --gutter:var(--space-5); --section-pad:var(--space-10) }
+  .film-start { padding:var(--space-3) }
+  .play-chip { min-height:32px; padding-inline:var(--space-3) }
+  .hero h1 { max-width:15ch }
+}
+@media print {
+  .hero { padding:0 0 16pt }
+  .hero-heading, .feature-film { display:block }
+  .appearance, .film-start { display:none }
+  .feature-film { max-width:420pt; margin-top:16pt }
+}
+
+/* The two section openings share the same title and text columns. */
+#distribution, #guide {
+  --reading-inset: var(--space-8);
+  --reading-break: var(--space-16);
+  --sample-side: 112px;
+  padding-block: var(--section-pad, 80px);
+}
+#distribution { background: var(--ice); border-block: 1px solid var(--line) }
+#guide { background: var(--paper) }
+:is(#distribution, #guide) > .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  column-gap: var(--page-gap, 64px);
+  align-items: start;
+}
+:is(#distribution, #guide) > .wrap > * { grid-column: 1 / -1; min-width: 0 }
+:is(#distribution, #guide) > .wrap > h2 {
+  grid-column: 1;
+  max-width: 19ch;
+  font-size: clamp(2.2rem, 3.45vw, 3.65rem);
+  line-height: 1.05;
+  letter-spacing: -.054em;
+}
+:is(#distribution, #guide) > .wrap > h2 + .deck {
+  grid-column: 2;
+  margin: 0;
+  max-width: 58ch;
+  padding-top: var(--space-1);
+  color: var(--body);
+  font-size: clamp(1.03rem, 1.32vw, 1.2rem);
+  line-height: 1.52;
+}
+#distribution .subhead, #next-step h3 { line-height: 1.12; letter-spacing: -.035em }
+#distribution #week-one { margin-top: var(--reading-break) }
+#distribution #week-one > h3 { margin: 0; font-size: clamp(1.35rem, 1.95vw, 1.9rem) }
+#distribution .postgrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6) var(--reading-inset);
+  margin-top: var(--space-5);
+}
+#distribution .postcard {
+  padding: var(--space-4) 0 0;
+  border: 0;
+  border-top: 1px solid var(--edge);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#distribution .postcard header { margin: 0; color: var(--muted) }
+#distribution .postcard .byline { font-size: .8rem; font-weight: 570; letter-spacing: .015em }
+#distribution .postcard h3 { margin: var(--space-2) 0 0; color: var(--ink); font-size: clamp(1.12rem, 1.52vw, 1.52rem); line-height: 1.2 }
+#distribution .sample-purpose { margin-top: var(--space-3); max-width: 63ch; line-height: 1.47 }
+#distribution .sample-destination { margin-top: var(--space-2); font-size: .9rem }
+#distribution .sample-disclosure { margin-top: var(--space-4); border: 0; padding-top: 0 }
+#distribution .sample-disclosure > summary { gap: var(--space-3); min-height: 44px }
+#distribution .sample-disclosure > summary span { color: var(--blue); font-size: .85rem; font-weight: 600 }
+#distribution .sample-preview {
+  width: var(--sample-side);
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid var(--edge);
+  border-radius: var(--space-1);
+  box-shadow: var(--shadow);
+}
+#distribution .sample-disclosure[open] > summary { align-items: flex-start; gap: var(--space-3) }
+#distribution .sample-disclosure[open] .sample-preview { width: 100%; max-width: 35rem }
+#distribution .post-copy { color: var(--body); margin-top: var(--space-2) }
+#distribution .post-copy p { font-size: 1rem; line-height: 1.55 }
+#distribution .qualification { margin-top: var(--space-1); color: var(--muted) }
+#distribution .postrefs { margin: var(--space-4) 0 0 }
+#distribution .wrap > .subhead { margin-top: var(--reading-break); font-size: clamp(1.45rem, 2.2vw, 2.15rem) }
+#distribution .subhead + .stage-copy, #distribution #matrix + .stage-copy { max-width: 76ch }
+#distribution #matrix + .stage-copy { margin-top: var(--space-4) }
+
+:is(#distribution, #guide) .reading {
+  border: 0;
+  border-block: 1px solid var(--edge);
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+#distribution #matrix { margin-top: var(--space-5) }
+#guide #read-guide { margin-block: var(--reading-inset) 0 }
+#guide #read-code { margin-top: var(--space-5) }
+:is(#distribution, #guide) .reading > summary {
+  position: relative;
+  min-height: 48px;
+  list-style: none;
+  padding: var(--space-4) var(--space-12) var(--space-4) 0;
+  color: var(--ink);
+  font-size: 1.01rem;
+  font-weight: 620;
+  line-height: 1.4;
+}
+:is(#distribution, #guide) .reading > summary::-webkit-details-marker { display: none }
+:is(#distribution, #guide) .reading > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: translateY(-70%) rotate(45deg);
+}
+:is(#distribution, #guide) .reading[open] > summary::after { transform: translateY(-30%) rotate(-135deg) }
+:is(#distribution, #guide) .reading > summary:hover { background: transparent; color: var(--blue); text-decoration: underline; text-underline-offset: .2em }
+:is(#distribution, #guide) .reading > summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px }
+:is(#distribution, #guide) .reading[open] > summary { border-bottom: 1px solid var(--line) }
+#distribution .asset-body { padding: var(--space-4) 0 var(--space-6) }
+#distribution .tablewrap { border-radius: 4px; box-shadow: none }
+#distribution .matrix-table th, #distribution .matrix-table td { line-height: 1.46 }
+#distribution .matrix-table tbody th { background: var(--tint) }
+#distribution .matrix-table .slot { color: var(--muted) }
+#guide .reading-body { padding: var(--reading-inset) 0 }
+#guide .reading-body article { max-width: 74ch; margin-inline: auto; line-height: 1.65 }
+#guide .article-opening > p:first-child { font-size: clamp(1.11rem, 1.6vw, 1.35rem); line-height: 1.5; letter-spacing: -.012em }
+#guide .a-toc { padding-left: var(--space-4); border-color: var(--edge); margin-block: var(--space-6) }
+#guide .reading-body :is(.refstrip, .a-by) { color: var(--muted); line-height: 1.5 }
+#distribution .matrix-table th, #distribution .matrix-table td { padding: var(--space-3) var(--space-4) }
+#guide .reading-body :is(th, td) { padding: var(--space-2) var(--space-3) }
+#guide .tracebox {
+  margin-top: var(--space-12);
+  border: 1px solid var(--edge);
+  border-radius: var(--space-2);
+  box-shadow: none;
+  background: var(--surface);
+}
+#guide .trace-intro { padding: var(--space-6) var(--reading-inset); background: var(--subtle) }
+#guide .trace-intro h3 { max-width: 44ch; font-size: clamp(1.3rem, 2vw, 1.88rem); line-height: 1.19 }
+#guide .transcript, #guide .findings { padding: var(--reading-inset) var(--reading-inset) }
+#guide .transcript { background: var(--surface) }
+#guide .transcript dt { color: var(--muted) }
+#guide .transcript dd { margin: var(--space-1) 0 var(--space-3) }
+#guide .transcript dd:last-child { margin-bottom: 0 }
+#guide .findings li { margin-bottom: var(--space-2) }
+#guide .findings li:last-child { margin-bottom: 0 }
+#guide .transcript dd { line-height: 1.47 }
+#guide .findings { background: var(--subtle) }
+#guide .findings h4 { margin-bottom: 12px }
+#guide .findings li::marker { color: var(--muted) }
+#guide .terminal { padding: var(--space-4) var(--reading-inset) var(--space-5); color: var(--console-text); background: var(--console) }
+#guide .terminal > span { color: var(--console-label) }
+#guide .terminal pre { margin-top: var(--space-1); line-height: 1.55; tab-size: 2 }
+#guide .tracebox + .links { margin-top: var(--space-4) }
+#next-step.worked {
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  column-gap: var(--page-gap, 64px);
+  margin-top: var(--reading-break);
+  padding: var(--reading-inset) 0 0;
+  border: 0;
+  border-top: 1px solid var(--edge);
+  border-radius: 0;
+  background: transparent;
+}
+#next-step h3 { max-width: 18ch; font-size: clamp(1.65rem, 2.7vw, 2.7rem) }
+#next-step p { max-width: 60ch; line-height: 1.59 }
+@media(max-width: 1040px) {
+  #distribution, #guide { --reading-inset: var(--space-6); --reading-break: var(--space-12); --sample-side: 96px }
+}
+@media(max-width: 780px) {
+  #distribution, #guide { --reading-inset: var(--space-5); --reading-break: var(--space-10); --sample-side: 96px }
+  #guide .tracebox { margin-top: var(--space-8) }
+  :is(#distribution,#guide) > .wrap { display: block }
+  :is(#distribution,#guide) > .wrap > h2 { max-width: 24ch }
+  :is(#distribution,#guide) > .wrap > h2 + .deck { margin-top: var(--space-3); padding: 0 }
+  #distribution .postgrid { grid-template-columns: minmax(0,1fr); gap: var(--space-4) }
+  #distribution .postcard { display: grid; grid-template-columns: minmax(0,1fr) var(--sample-side); gap: 0 var(--space-5); padding-top: var(--space-4) }
+  #distribution .postcard > :not(.sample-disclosure) { grid-column: 1 }
+  #distribution .sample-disclosure { grid-column: 2; grid-row: 1 / span 3; margin: 0 }
+  #distribution .sample-disclosure > summary { flex-direction: column; align-items: flex-start; gap: var(--space-1) }
+  #distribution .sample-preview { width: 100% }
+  #distribution .postcard:has(.sample-disclosure[open]) { display: block }
+  #distribution .sample-disclosure[open] { display: block; margin-top: var(--space-4) }
+  #distribution .sample-disclosure[open] > summary { flex-direction: column-reverse }
+  #distribution .sample-disclosure[open] .sample-preview { width: min(100%, 29rem) }
+  #distribution .sample-destination { margin-top: var(--space-2) }
+  #next-step.worked { grid-template-columns: 1fr; gap: var(--space-3) }
+}
+@media(max-width: 720px) {
+  #distribution .matrix-table tbody th { background: var(--head-fill); color: var(--head-text) }
+}
+@media(max-width: 520px) {
+  #distribution, #guide { --reading-inset: var(--space-4); --reading-break: var(--space-8); --sample-side: 80px }
+}
+@media(max-width: 375px) {
+  #distribution .postcard { grid-template-columns: minmax(0,1fr) 72px; column-gap: 12px }
+}
+@media print {
+  :is(#distribution,#guide) { padding-block: 12pt; background: transparent }
+  :is(#distribution,#guide) > .wrap { display: block }
+  #distribution .sample-preview { box-shadow: none }
+}
 </style>
 </head>
 <body>
@@ -441,79 +738,41 @@ h2 + .stage-copy, h3 + .stage-copy { margin-top: 14px }
   <label><input type="radio" name="appearance" id="theme-light" value="light"><span>Light</span></label>
   <label><input type="radio" name="appearance" id="theme-dark" value="dark"><span>Dark</span></label>
 </fieldset>
-<script>// Radio buttons select the appearance in CSS. Storage remembers the reader’s choice.
-(() => {
-  const options = document.querySelectorAll('.appearance input[name="appearance"]');
-  const key = 'bg-application-theme';
-  try {
-    const saved = localStorage.getItem(key);
-    for (const option of options) {
-      if (option.value === saved) option.checked = true;
-    }
-  } catch {}
 
-  for (const option of options) {
-    option.addEventListener('change', () => {
-      try {
-        if (option.value === 'system') localStorage.removeItem(key);
-        else localStorage.setItem(key, option.value);
-      } catch {}
-    });
-  }
-})();
-
-// Reveal the workbook entry or section addressed by a link, including nested entries.
-(() => {
-  function revealTarget() {
-    let id;
-    try { id = decodeURIComponent(location.hash.slice(1)); }
-    catch { return; }
-    const target = id && document.getElementById(id);
-    if (!target) return;
-    let changed = false;
-    for (let entry = target.closest('details'); entry; entry = entry.parentElement?.closest('details')) {
-      if (!entry.open) {
-        entry.open = true;
-        changed = true;
-      }
-    }
-    if (changed) target.scrollIntoView({block: 'start'});
-  }
-  window.addEventListener('hashchange', revealTarget);
-  document.addEventListener('DOMContentLoaded', revealTarget);
-  document.addEventListener('click', event => {
-    const link = event.target.closest?.('a[href^="#"]');
-    if (link && link.hash === location.hash) revealTarget();
-  });
-})();
-</script>
 </div></header>
 <main>
-<section id="top" class="hero"><div class="wrap hero-grid">
-<div class="hero-copy">
-<h1>How I’d introduce Blue Guardrails to engineers</h1>
-<p class="intro hero-intro">I’m Vighnesh Suresh Babu. I write about technical products for the engineers who use them. I’m based in Berlin and I’m applying to be your Founding Technical Marketing Manager.</p>
-<p>I made this 52-second film about a medicines agent that called a common side effect “rare”. You can see the mistake as soon as you put the answer beside its source.</p>
-<p>That’s where I’d start with an engineer. I’ve included three LinkedIn posts, the posting matrix behind them and a technical guide with Python code. Together they answer two questions. How would someone find Blue Guardrails? What could they try once they did?</p>
+<section id="top" class="hero"><div class="wrap">
+<div class="hero-heading">
+<h1 aria-label="How I’d introduce Blue Guardrails to engineers">How I’d introduce <span class="company-name">Blue Guardrails</span> to engineers</h1>
+<div class="hero-intro"><p>I’m Vighnesh Suresh Babu, a product marketer in Berlin applying for your Founding Technical Marketing Manager role. I like to ask customers to walk me through the last time they used a product. Where did they get stuck, and what helped? Those details give me a story another customer can recognise and something useful to show them.</p>
+<p>Here I’ve written for an engineer deciding whether a medicines agent is ready for release. I made a film, three LinkedIn posts, a posting matrix and a technical guide with runnable Python.</p></div>
 </div>
-<figure id="film" class="herofilm"><video controls playsinline preload="none" poster="assets/film-poster.jpg" aria-label="Play Vighnesh’s 52-second product film"><source src="assets/blue-guardrails-film.mp4" type="video/mp4"></source></video>
-<figcaption><b>Product film · 52 seconds</b><small>I recreated Blue Guardrails’ <a href="https://blueguardrails.com/_images/3d2c582603ec16e1cf54-1920.webp">published example</a>. The corrected answer illustrates its <a href="https://blueguardrails.com/en/blog/knowledge-graph-agent-steering">steering method</a>.</small></figcaption></figure>
+<figure id="film" class="feature-film">
+<div class="film-frame"><video controls playsinline preload="none" poster="assets/film-poster.jpg" aria-label="Vighnesh’s 52-second Blue Guardrails product film"><source src="assets/blue-guardrails-film.mp4" type="video/mp4"></source></video>
+<button type="button" class="film-start" aria-label="Play the 52-second product film" hidden><img class="film-still" src="assets/film-poster.jpg" width="1280" height="720" alt=""><span class="play-chip"><i aria-hidden="true"></i>Play film <time datetime="PT52S">0:52</time></span></button></div>
+<figcaption>
+<h2>A 52-second product film</h2>
+<p>A medicines agent called a common side effect “rare”. I put the answer beside its source so a reviewer can see the error in a single word.</p>
+<p class="film-credit">For this independent film I recreated Blue Guardrails’ <a href="https://blueguardrails.com/_images/3d2c582603ec16e1cf54-1920.webp">published example</a>. The corrected answer illustrates its <a href="https://blueguardrails.com/en/blog/knowledge-graph-agent-steering">steering method</a>.</p>
+</figcaption>
+</figure>
 </div></section>
 
 <section id="distribution" class="band pale"><div class="wrap">
 <h2>How would an engineer find this?</h2>
-<p class="deck stage-copy">At the top of the funnel, I’d start with people who already have to check an agent’s answers. In Blue Guardrails’ medicines study, a reviewer spent 10 to 20 minutes checking <em>one</em> answer against its sources. An engineer doing that work has a reason to stop and read. <a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">Read the study</a>.</p>
+<p class="deck stage-copy">At the top of the funnel, I’d write for the engineer who already checks an agent’s answers by hand. In the PlaceboBench medicines study, a reviewer spent 10 to 20 minutes checking <em>one</em> answer against its sources. The three posts below give that engineer different ways to look at the problem. <a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">Read the study</a>.</p>
 <div id="week-one"><h3 class="subhead">Three LinkedIn posts I’d start with</h3>
 <div class="postgrid"><article class="postcard" id="week1-post-1"><header><small class="byline">Company page · Monday</small><h3>Three places a run can go wrong</h3></header><p class="sample-purpose">The company gives engineers a check for each claim, tool call and later step that relies on it.</p><p class="sample-destination"><a href="#order-trace">Inspect the order trace</a></p><details class="sample-disclosure"><summary><img class="sample-preview" loading="lazy" width="900" height="900" src="assets/week-1-post-1.webp" alt="Three places agents can hallucinate: the claim, the tool call and the trajectory."><span>Artwork and full post</span></summary><p class="qualification">These checks need the relevant instructions, messages and tool results to have been recorded.</p><div class="post-copy"><p>AI agents hallucinate in three places. A classic RAG check looks at only one.</p><p>Claim: the answer says "Your refund went out on March 3", but no tool returned a date.<br>Tool call: the user asks about order A-77, and the agent looks up A-78.<br>Trajectory: a search comes back empty, and the answer still quotes "the search results".</p><p>You can catch all three without a gold dataset. If your traces capture message content, they hold everything the agent saw. Each check asks: was this supported at that step?</p><p>Our new guide has the checks, with Python code for OpenTelemetry traces. Link in the comments.</p></div><p class="postrefs"><a href="#read-guide">Guide</a> · <a href="#read-code">Code</a></p></details></article><article class="postcard" id="week1-post-4"><header><small class="byline">Miriam Kümmel · Wednesday</small><h3>When a successful run contains an error</h3></header><p class="sample-purpose">Miriam asks what a team could miss at release if it scored only the final answer.</p><p class="sample-destination"><a href="https://arxiv.org/abs/2606.02060">Read the study on successful runs</a></p><details class="sample-disclosure"><summary><img class="sample-preview" loading="lazy" width="900" height="900" src="assets/week-1-post-4.webp" alt="36.9% of successful runs in the reviewed sample still had an error along the way."><span>Artwork and full post</span></summary><p class="qualification">The 36.9% applies to the 1,365 successful runs in TELBench’s sample of 2,790.</p><div class="post-copy"><p>An AI agent gives the right answer and the run is marked a success. Step three was still wrong.</p><p>A 2026 study annotated 2,790 real runs of deep-research agents, with LLM-assisted expert review. In 36.9% of the successful runs, at least one error crept in. More than one in three.</p><p>The agents recovered, or reached the right answer despite a bad step. Score only the final answer and they all pass.</p><p>In 2025 I wrote that the hallucinations that matter in production lead to wrong decisions. In an agent, those decisions happen at every step.</p><p>Our guide shows how to check each step. Link in the comments.</p></div><p class="postrefs"><a href="https://blueguardrails.com/en/blog/why-hallucination-benchmarks-miss-the-mark">Miriam’s article</a> · <a href="#read-guide">Guide</a></p></details></article><article class="postcard" id="week1-post-3"><header><small class="byline">Mathis Lucka · Tuesday</small><h3>What the 94.4% score measures</h3></header><p class="sample-purpose">Mathis shows engineers how Blue Guardrails compared seven detectors on its own pharmaceutical benchmark.</p><p class="sample-destination"><a href="https://blueguardrails.com/en/blog/hallucination-detection-comparison">See how the detectors were scored</a></p><details class="sample-disclosure"><summary><img class="sample-preview" loading="lazy" width="900" height="900" src="assets/week-1-post-3.webp" alt="PlaceboBench message-level accuracy: Blue Guardrails 94.4%, best of six other detectors 62.3%."><span>Artwork and full post</span></summary><p class="qualification">Blue Guardrails tested its own detector on PlaceboBench. The score measures accuracy per answer. Azure could process only 294 examples.</p><div class="post-copy"><p>We tested seven hallucination detectors on PlaceboBench, our pharma benchmark. Six scored between 53.6% and 62.3%.</p><p>The score: how often a tool correctly says whether an answer contains a hallucination. Flagging every answer scores about 45% on this data. Six did only a little better than that.</p><p>Our detector, an LLM-based verification agent, scored 94.4%.</p><p>Two caveats. It's our benchmark and our tool. And the labels started from our detector's output. We reviewed every flag by hand, added what it missed, and a second annotator checked every label.</p><p>The method and dataset are public, so you can check our numbers. Links in the comments.</p></div><p class="postrefs"><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">Annotation method</a> · <a href="https://huggingface.co/datasets/blue-guardrails/PlaceboBench">Dataset</a></p></details></article></div></div>
 <h3 class="subhead">How I chose the topics</h3>
-<p class="stage-copy">I started with the questions a buyer might ask. For each one, I chose who could answer it, what evidence they could show and what the reader could do next. The result is a posting matrix with 36 questions.</p>
+<p class="stage-copy">When I interviewed clinical-trial software customers, some valued being able to speak directly to scientists. Others cared about how well the software fitted the way they ran their studies. The same pitch would have missed what mattered to one of them.</p>
+<p class="stage-copy">For Blue Guardrails, I started with 36 questions a buyer might ask. The matrix pairs each one with a writer and a next step. For the three customer stories, I’d first need a customer willing to share what happened.</p>
 <details class="reading asset-details" id="matrix"><summary>Browse the 36 buyer questions</summary><div class="asset-body"><p><a href="assets/downloads/Blue-Guardrails-Posting-Matrix.xlsx" download="Blue-Guardrails-Posting-Matrix.xlsx">Download the posting matrix</a></p><div class="tablewrap"><table class="matrix-table" aria-label="Buyer questions by angle, author and theme"><thead><tr><th scope="col">Angle and author</th><th scope="col">Catching agent hallucinations</th><th scope="col">Testing on your own data</th><th scope="col">Agents in regulated work</th></tr></thead><tbody><tr><th scope="row">Who we are<small>Company page</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">What does Blue Guardrails check in a running agent?</summary><div id="topic-1-1"><p class="brief-title"><b>An unsupported word in an answer</b></p><p>Open a flagged span and read the issue label and the evidence behind it.</p><p><span class="reader-action-label">Reader action</span> Compare the highlighted words with the input the agent saw.</p><p><a href="https://docs.blueguardrails.com/concepts/issues">Issue documentation</a></p></div></details><small class="slot">Week 1 · Tue</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Why do we publish our benchmarks and data?</summary><div id="topic-1-2"><p class="brief-title"><b>How PlaceboBench got its labels</b></p><p>Compare one published answer with its source passages and the labels the reviewers agreed on.</p><p><span class="reader-action-label">Reader action</span> Subscribe to the research newsletter for future studies.</p><p><a href="https://huggingface.co/datasets/blue-guardrails/PlaceboBench">PlaceboBench dataset</a></p></div></details><small class="slot">Week 4 · Mon</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Where does Blue Guardrails run, and what happens to our data?</summary><div id="topic-1-3"><p class="brief-title"><b>Where the trace data goes</b></p><p>Compare EU-hosted SaaS, private cloud and on-premises options, including what the company says about training on customer data.</p><p><span class="reader-action-label">Reader action</span> Check which option fits your data policy.</p><p><a href="https://blueguardrails.com/en">Blue Guardrails FAQ</a></p></div></details><small class="slot">Week 3 · Mon</small></td></tr><tr><th scope="row">Behind the scenes<small>Mathis</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">How did we test seven hallucination detectors on one dataset?</summary><div id="topic-2-1"><p class="brief-title"><b>How seven detectors were compared</b></p><p>Blue Guardrails scored 94.4% on its own pharmaceutical benchmark. The best of the six other detectors scored 62.3%. Each score measures accuracy per answer. Azure could process only 294 examples.</p><p><span class="reader-action-label">Reader action</span> Check the samples and scoring method before comparing tools.</p><p><a href="https://blueguardrails.com/en/blog/hallucination-detection-comparison">Detector comparison</a></p></div></details><small class="slot">Week 1 · Tue</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">What did we find when we re-checked a public benchmark's labels?</summary><div id="topic-2-2"><p class="brief-title"><b>What changed after relabelling</b></p><p>Compare the original and revised labels for the same 408 RAGTruth answers. Pick one where a changed label would change a detector’s score.</p><p><span class="reader-action-label">Reader action</span> Inspect the revised annotation in RAGTruth++.</p><p><a href="https://blueguardrails.com/en/blog/ragtruth-plus-plus-enhanced-hallucination-detection-benchmark">RAGTruth++ study</a></p></div></details><small class="slot">Week 2 · Thu</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">How did we steer an agent that reads drug documents?</summary><div id="topic-2-3"><p class="brief-title"><b>Correcting a missed drug entity</b></p><p>Follow a missed entity through the drug-document experiment. Compare recall before and after the agent received feedback.</p><p><span class="reader-action-label">Reader action</span> Request the session slides to see how the correction worked.</p><p><a href="https://blueguardrails.com/en/blog/knowledge-graph-agent-steering">Drug extraction experiment</a></p></div></details><small class="slot">Week 3 · Tue</small></td></tr><tr><th scope="row">Value before purchase<small>Company page</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Where do agents hallucinate, and how do you check each place?</summary><div id="topic-3-1"><p class="brief-title"><b>Three places to check a run</b></p><p>Work through an unsupported claim, an invented tool argument and a response built on a failed call. Each leaves different evidence in the trace.</p><p><span class="reader-action-label">Reader action</span> Try the wrong-order example in the guide.</p><p><a href="#guide">Technical guide</a></p></div></details><small class="slot">Week 1 · Mon</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">How do you test a hallucination checker on your own traces?</summary><div id="topic-3-2"><p class="brief-title"><b>Checking the checker</b></p><p>Have a reviewer label flagged and unflagged runs from one workflow. Count the false alarms and missed errors separately for each check.</p><p><span class="reader-action-label">Reader action</span> Choose a sample of your own traces using the guide.</p><p><a href="#guide">Technical guide</a></p></div></details><small class="slot">Week 2 · Mon</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Which cloud runs which model in the EU?</summary><div id="topic-3-3"><p class="brief-title"><b>Which models run in the EU?</b></p><p>Look up the provider and region for one model. Record any residency question the provider still needs to answer.</p><p><span class="reader-action-label">Reader action</span> Look up a model on your shortlist.</p><p><a href="https://blueguardrails.com/en/resources/where-ai">Where AI? model directory</a></p></div></details><small class="slot">Week 3 · Tue</small></td></tr><tr><th scope="row">Thought leadership<small>Miriam</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Is a successful agent run a clean run?</summary><div id="topic-4-1"><p class="brief-title"><b>When a successful run contains an error</b></p><p>In TELBench’s sample, some agents reached the right answer after making an error. A final-answer score misses that earlier step.</p><p><span class="reader-action-label">Reader action</span> Inspect an intermediate step in the guide.</p><p><a href="https://arxiv.org/abs/2606.02060">TELBench paper</a></p></div></details><small class="slot">Week 1 · Wed</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Do public benchmarks predict how a model does on your work?</summary><div id="topic-4-2"><p class="brief-title"><b>When a benchmark differs from the job</b></p><p>Compare the benchmark prompts with the documents your agent reads. Which differences could change the results?</p><p><span class="reader-action-label">Reader action</span> Choose a representative input to test.</p><p><a href="https://blueguardrails.com/en/blog/why-hallucination-benchmarks-miss-the-mark">Miriam’s benchmark analysis</a></p></div></details><small class="slot">Week 2 · Wed</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Should high-risk processes use LLMs today?</summary><div id="topic-4-3"><p class="brief-title"><b>Which errors would stop a release?</b></p><p>Use a claim from PlaceboBench to ask who would review it and whether correcting it would change a release decision.</p><p><span class="reader-action-label">Reader action</span> Discuss one error that would stop your team shipping.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Week 4 · Fri</small></td></tr><tr><th scope="row">Buyer pain points<small>Miriam</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Why can't you spot hallucinations by reading the answer?</summary><div id="topic-5-1"><p class="brief-title"><b>What a manual reviewer reads</b></p><p>A side-effect frequency sounds plausible until a reviewer checks the source. On PlaceboBench, reviewing one answer took 10 to 20 minutes.</p><p><span class="reader-action-label">Reader action</span> Compare that with the time a source check takes on your documents.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Week 1 · Fri</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Why do teams still spot-check AI answers by hand?</summary><div id="topic-5-2"><p class="brief-title"><b>The cost of a spot check</b></p><p>A reviewer needs the question, the retrieved passages and the answer. Measure a check on your own workload before budgeting for manual review.</p><p><span class="reader-action-label">Reader action</span> Time one source check on a representative answer.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Future post</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Why do drug documents trip up LLMs?</summary><div id="topic-5-3"><p class="brief-title"><b>Finding evidence in medicines documents</b></p><p>Show where the relevant passage sits in a long document and how much of it the model actually received.</p><p><span class="reader-action-label">Reader action</span> Read how PlaceboBench selected passages and built its prompts.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Week 3 · Wed</small></td></tr><tr><th scope="row">Buyer beliefs<small>Mathis</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Does RAG stop hallucinations?</summary><div id="topic-6-1"><p class="brief-title"><b>Errors that survive retrieval</b></p><p>Use the published results for search-assisted answers. A retrieved passage can be relevant even when the answer misstates it.</p><p><span class="reader-action-label">Reader action</span> Choose a search-assisted answer to check against its sources.</p><p><a href="https://blueguardrails.com/en/blog/llm-hallucination-statistics-2026">Hallucination rates by task</a></p></div></details><small class="slot">Week 4 · Tue</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Is the newest model version always the safer choice?</summary><div id="topic-6-2"><p class="brief-title"><b>Checking a model upgrade</b></p><p>Compare two versions on the same benchmark before deciding whether to switch a production agent.</p><p><span class="reader-action-label">Reader action</span> Pick a regression case for your next model change.</p><p><a href="https://blueguardrails.com/en/blog/llm-hallucination-statistics-2026">Hallucination rates by task</a></p></div></details><small class="slot">Week 2 · Tue</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Does giving an agent search tools mean fewer hallucinations?</summary><div id="topic-6-3"><p class="brief-title"><b>Comparing graph and vector retrieval</b></p><p>Compare answer quality and the extra operations each retrieval setup required on the same questions.</p><p><span class="reader-action-label">Reader action</span> Choose one configuration to test on your questions.</p><p><a href="https://blueguardrails.com/en/blog/graph-rag-vs-agentic-rag">Graph and agentic RAG comparison</a></p></div></details><small class="slot">Week 3 · Thu</small></td></tr><tr><th scope="row">Objection: no time<small>Miriam</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">What is the smallest check worth running this week?</summary><div id="topic-7-1"><p class="brief-title"><b>The first tool-call check</b></p><p>In the example trace, A-78 has the right format. It appears for the first time in the agent’s own tool call.</p><p><span class="reader-action-label">Reader action</span> Run the fixture and locate the unsupported order ID.</p><p><a href="#read-code">Python example</a></p></div></details><small class="slot">Future post</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Do we need a gold dataset before we can evaluate our agent?</summary><div id="topic-7-2"><p class="brief-title"><b>Starting without reference answers</b></p><p>Show which claims a reviewer can check against a recorded input. Labelled examples are still needed to measure what the checker misses.</p><p><span class="reader-action-label">Reader action</span> Tell Miriam what your agent records today.</p><p><a href="#guide">Technical guide</a></p></div></details><small class="slot">Week 2 · Fri</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Can you test this on our own domain without a long project?</summary><div id="topic-7-3"><p class="brief-title"><b>A benchmark for one workflow</b></p><p>Choose a decision the agent supports, then identify a source document and an error that would change that decision.</p><p><span class="reader-action-label">Reader action</span> Send Miriam a use case and the error you need to measure.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Week 3 · Fri</small></td></tr><tr><th scope="row">Objection: too expensive<small>Miriam</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">What does it cost to check every agent run?</summary><div id="topic-8-1"><p class="brief-title"><b>The cost of checking a run</b></p><p>Distinguish local schema checks from checks that need another model call. Show where sampling changes the cost.</p><p><span class="reader-action-label">Reader action</span> Time one check on a typical trace.</p><p><a href="#guide">Technical guide</a></p></div></details><small class="slot">Future post</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Does the model with the fewest hallucinations cost the most?</summary><div id="topic-8-2"><p class="brief-title"><b>Model cost and error rate</b></p><p>Compare cost per 1,000 prompts with the share of answers containing a hallucination in the same PlaceboBench test.</p><p><span class="reader-action-label">Reader action</span> Compare both figures for the models on your shortlist.</p><p><a href="https://blueguardrails.com/en/blog/placebo-bench-an-llm-hallucination-benchmark-for-pharma">PlaceboBench study</a></p></div></details><small class="slot">Week 4 · Wed</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Is the cheapest retrieval setup good enough for regulated questions?</summary><div id="topic-8-3"><p class="brief-title"><b>Retrieval cost and answer quality</b></p><p>Set the maximum acceptable error rate and latency. Compare the cheaper and more expensive setups on the same questions.</p><p><span class="reader-action-label">Reader action</span> Choose two configurations to test against those limits.</p><p><a href="https://blueguardrails.com/en/blog/graph-rag-vs-agentic-rag">Graph and agentic RAG comparison</a></p></div></details><small class="slot">Future post</small></td></tr><tr><th scope="row">Evaluation FAQs<small>Company page</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">How do our traces get to Blue Guardrails?</summary><div id="topic-9-1"><p class="brief-title"><b>Sending the first trace</b></p><p>Follow the OpenTelemetry setup through the export endpoint, authentication and content fields in a test run.</p><p><span class="reader-action-label">Reader action</span> Open the integration guide for your framework.</p><p><a href="https://docs.blueguardrails.com/getting-started">OpenTelemetry setup</a></p></div></details><small class="slot">Week 4 · Tue</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Can we compare models without touching live traffic?</summary><div id="topic-9-2"><p class="brief-title"><b>Replaying a model change</b></p><p>Replay the final response from a stored conversation, keeping the earlier tool results fixed so you can see what the model change did.</p><p><span class="reader-action-label">Reader action</span> Replay the same conversation before and after a model change.</p><p><a href="https://docs.blueguardrails.com/concepts/experiments-comparisons">Replay documentation</a></p></div></details><small class="slot">Week 2 · Tue</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Can checks run before a user sees the answer?</summary><div id="topic-9-3"><p class="brief-title"><b>Checking an answer before display</b></p><p>Place a live check between generation and display. Decide how long the application can wait and what it should do with a flagged passage.</p><p><span class="reader-action-label">Reader action</span> Ask a founder how a live check fits your latency budget.</p><p><a href="https://docs.blueguardrails.com/guides/detect-issues-live">Live detection guide</a></p></div></details><small class="slot">Week 3 · Thu</small></td></tr><tr><th scope="row">Pre-education<small>Company page</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">What counts as a hallucination in an AI agent?</summary><div id="topic-10-1"><p class="brief-title"><b>The stock-check contradiction</b></p><p>The tool returns zero stock. The answer says the item is in stock. Both pieces of evidence are in the same trace.</p><p><span class="reader-action-label">Reader action</span> Check the claim against the tool output.</p><p><a href="#guide">Technical guide</a></p></div></details><small class="slot">Week 1 · Thu</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Why do hallucination rates range from 4% to over 80%?</summary><div id="topic-10-2"><p class="brief-title"><b>What a hallucination rate counts</b></p><p>For two published rates, identify the task, the dataset and what counted as one observation.</p><p><span class="reader-action-label">Reader action</span> Check the denominator in a benchmark you use.</p><p><a href="https://blueguardrails.com/en/blog/llm-hallucination-statistics-2026">Hallucination rates by task</a></p></div></details><small class="slot">Week 2 · Thu</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">What does steering an agent mid-run mean?</summary><div id="topic-10-3"><p class="brief-title"><b>Giving an agent feedback mid-run</b></p><p>Follow a flagged extraction through the feedback message to the agent’s next attempt.</p><p><span class="reader-action-label">Reader action</span> Read the guide’s example of how to handle a flag.</p><p><a href="https://blueguardrails.com/en/blog/knowledge-graph-agent-steering">Drug extraction experiment</a></p></div></details><small class="slot">Week 4 · Thu</small></td></tr><tr><th scope="row">Blind spots<small>Mathis</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Why is the wrong step harder to find in long agent runs?</summary><div id="topic-11-1"><p class="brief-title"><b>Finding the first wrong step</b></p><p>Compare how often GPT-5 located the responsible step in short and long AgentHallu runs. A final-answer flag still leaves the engineer to find that step.</p><p><span class="reader-action-label">Reader action</span> Trace the guide’s example back to the wrong tool call.</p><p><a href="https://arxiv.org/abs/2601.06818">AgentHallu paper</a></p></div></details><small class="slot">Week 1 · Thu</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">What does one accuracy number hide?</summary><div id="topic-11-2"><p class="brief-title"><b>Errors hidden by an average</b></p><p>Compare reasoning and tool-use errors for the same model in AgentHallu. An overall accuracy score combines the two.</p><p><span class="reader-action-label">Reader action</span> Score your agent separately for each kind of error.</p><p><a href="https://arxiv.org/abs/2601.06818">AgentHallu paper</a></p></div></details><small class="slot">Week 4 · Thu</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">When is a true answer still a hallucination?</summary><div id="topic-11-3"><p class="brief-title"><b>A true claim with no source</b></p><p>A claim can be true even when the agent had no evidence for it at the time. Show how that distinction changes a review.</p><p><span class="reader-action-label">Reader action</span> Decide which sources your application allows the agent to use.</p><p><a href="https://docs.blueguardrails.com/concepts/issues">Issue documentation</a></p></div></details><small class="slot">Future post</small></td></tr><tr><th scope="row">Social proof<small>Company page</small></th><td data-label="Catching agent hallucinations"><details class="cellbrief"><summary class="question">Which customer has caught a production failure with us, on the record?</summary><div id="topic-12-1"><p class="brief-title"><b>A documented production failure</b></p><p>Ask the customer for a trace they can share and their account of what happened at the flagged step.</p></div></details><small class="slot">Needs customer clearance</small></td><td data-label="Testing on your own data"><details class="cellbrief"><summary class="question">Which customer has compared models on its own traces, on the record?</summary><div id="topic-12-2"><p class="brief-title"><b>A customer’s model comparison</b></p><p>A publishable comparison needs the workload, test conditions and the decision the customer made.</p></div></details><small class="slot">Needs customer clearance</small></td><td data-label="Agents in regulated work"><details class="cellbrief"><summary class="question">Which regulated customer result is cleared to publish?</summary><div id="topic-12-3"><p class="brief-title"><b>A regulated deployment in practice</b></p><p>The customer would need to describe the deployment constraints and confirm the outcome on the record.</p></div></details><small class="slot">Needs customer clearance</small></td></tr></tbody></table></div></div></details>
-<p class="stage-copy">I’d give each post its own link so I could see which questions brought readers to the guide and which sent them to the benchmark. The next question is what those readers can do once they get there.</p>
+<p class="stage-copy">I’d tag the links to see which posts bring readers to the guide or benchmark. Their replies would tell me more. If engineers keep asking whether a result holds on their own documents, that’s the question I’d write about next.</p>
 </div></section>
 
 <section id="guide" class="band"><div class="wrap">
 <h2>How to detect hallucinations in AI agents in production</h2>
-<p class="deck stage-copy">At the middle of the funnel, the engineer’s question changes. “Would this catch a mistake in <em>my</em> agent?” I wrote this guide and built a Python example they can run on a laptop. It uses a shop order so anyone can check the result without knowing anything about medicines.</p>
+<p class="deck stage-copy">In the middle of the funnel, I’d give the engineer a way to investigate a mistake themselves. The guide asks what evidence the agent had when it answered. The Python checks are my own teaching example. I used a made-up shop order so readers can inspect <em>every</em> step and run the checks on a laptop.</p>
 <details class="reading" id="read-guide"><summary>Read the technical article and its sources</summary><div class="reading-body"><article class="a" aria-label="How to detect hallucinations in AI agents in production">
   <div class="article-opening"><p>“Your order A-77 is on its way.” The customer had asked for tracking. The agent had just looked up A-78 and received an error. Its reply switched back to the customer’s order number and reported that the order had shipped.</p><p>Run <code>python3 run.py -v</code> in the extracted <a href="#read-code">companion code</a> and find <code>03_wrong_tool_argument</code>. The record shows exactly what evidence the agent had when it answered. It also leaves one question open. Was A-77 actually on its way? To find out, check the fulfilment record for A-77.</p></div><nav class="a-toc" aria-label="In this guide"><p class="lbl">In this guide</p><ol><li><a href="#g-agents-fail-where-rag-checks-do-not-look">Agents fail where RAG checks do not look</a></li><li><a href="#g-check-each-output-against-the-trace-not-the-truth">Check each output against the trace, not the truth</a></li><li><a href="#g-use-a-different-check-at-each-level">Use a different check at each level</a></li><li><a href="#g-detection-is-far-from-solved-what-the-research-says">Detection is far from solved: what the research says</a></li><li><a href="#g-run-cheap-checks-inline-and-model-checks-in-the-background">Run cheap checks inline and model checks in the background</a></li><li><a href="#g-test-your-detector-on-100-to-300-of-your-own-traces">Test your detector on 100 to 300 of your own traces</a></li><li><a href="#g-faq">FAQ</a></li></ol></nav>
   <div class="a-body">
@@ -877,9 +1136,89 @@ findings = check_trace(spans, judge=my_judge)
   <p class="back"><a class="cta" href="#guide">Back to the application</a></p>
 </article>
 </div></details>
-<div id="next-step" class="worked"><div><h3>When would I bring in a founder?</h3></div><div>
-<p>A download tells me someone wanted the code. If an engineer writes back, “Our agent does this too, and we’re about to switch models,” I have a reason to follow up. I’d ask what failed and what would count as a correct answer. If they want help testing their own cases before release, I’d bring that question to Mathis.</p>
+<div id="next-step" class="worked"><div><h3>What would tell me the guide helped?</h3></div><div>
+<p>I’d look for a reader who can point to the step where their own agent went wrong. If they say, “Our agent does this too, and we’re about to change models”, I’d ask what answer they expected and how they’d check it. If the guide left them stuck, I’d revise the example. If they want to compare models on their own cases before release, I’d take their question to Mathis.</p>
 </div></div>
 </div></section>
 </main>
+<script>// Radio buttons select the appearance in CSS. Storage remembers the reader’s choice.
+(() => {
+  const options = document.querySelectorAll('.appearance input[name="appearance"]');
+  const key = 'bg-application-theme';
+  try {
+    const saved = localStorage.getItem(key);
+    for (const option of options) {
+      if (option.value === saved) option.checked = true;
+    }
+  } catch {}
+
+  for (const option of options) {
+    option.addEventListener('change', () => {
+      try {
+        if (option.value === 'system') localStorage.removeItem(key);
+        else localStorage.setItem(key, option.value);
+      } catch {}
+    });
+  }
+})();
+
+// Offer a clean poster before playback. The browser handles the film controls.
+(() => {
+  const frame = document.querySelector('.film-frame');
+  if (!frame) return;
+  const video = frame.querySelector('video');
+  const play = frame.querySelector('.film-start');
+  if (!video || !play) return;
+  function showPoster() {
+    video.controls = false;
+    video.hidden = true;
+    play.hidden = false;
+  }
+  function showControls() {
+    video.hidden = false;
+    video.controls = true;
+    play.hidden = true;
+  }
+  play.addEventListener('click', () => {
+    showControls();
+    video.focus();
+    video.play().catch(() => {
+      // Leave the native player available after a blocked play or connection failure.
+      showControls();
+    });
+  });
+  video.addEventListener('play', showControls);
+  video.addEventListener('ended', () => {
+    if (document.fullscreenElement || video.webkitDisplayingFullscreen) return;
+    video.load();
+    showPoster();
+  });
+  showPoster();
+})();
+
+// Reveal the workbook entry or section addressed by a link, including nested entries.
+(() => {
+  function revealTarget() {
+    let id;
+    try { id = decodeURIComponent(location.hash.slice(1)); }
+    catch { return; }
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    let changed = false;
+    for (let entry = target.closest('details'); entry; entry = entry.parentElement?.closest('details')) {
+      if (!entry.open) {
+        entry.open = true;
+        changed = true;
+      }
+    }
+    if (changed) target.scrollIntoView({block: 'start'});
+  }
+  window.addEventListener('hashchange', revealTarget);
+  document.addEventListener('DOMContentLoaded', revealTarget);
+  document.addEventListener('click', event => {
+    const link = event.target.closest?.('a[href^="#"]');
+    if (link && link.hash === location.hash) revealTarget();
+  });
+})();
+</script>
 </body></html>
